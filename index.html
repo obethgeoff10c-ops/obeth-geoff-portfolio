@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obeth Geoff | AI & Machine Learning Engineer Portfolio</title>
+  <meta name="description" content="Professional portfolio of Obeth Geoff, AI & Machine Learning Engineer, and Python Developer. Explore interactive 3D WebGL dashboards.">
+  
+  <!-- Open Graph / Social Previews -->
+  <meta property="og:title" content="Obeth Geoff | AI & Machine Learning Engineer">
+  <meta property="og:description" content="Building intelligent systems and innovative solutions through AI, Machine Learning, Python, and Deep Learning.">
+  <meta property="og:image" content="src/assets/portrait.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon Avatar -->
+  <link rel="icon" type="image/jpeg" href="src/assets/portrait.jpg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Clash Display from Fontshare -->
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="index.css">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Import Maps for React, Three.js and React Three Fiber directly in browser -->
+  <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom": "https://esm.sh/react-dom@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "three": "https://esm.sh/three@0.156.1",
+        "@react-three/fiber": "https://esm.sh/@react-three/fiber@8.13.7?external=react,react-dom,three",
+        "@react-three/drei": "https://esm.sh/@react-three/drei@9.84.3?external=react,react-dom,three,@react-three/fiber",
+        "framer-motion": "https://esm.sh/framer-motion@10.16.4?external=react,react-dom"
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <!-- Premium Neural Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader-content font-mono">
+      <div class="loader-title">OBETH GEOFF</div>
+      <div class="loader-status neon-text">SYSTEM.BOOT_NEURAL_NET...</div>
+      <div class="loader-bar"><div class="loader-progress"></div></div>
+    </div>
+  </div>
+
+  <!-- Background 3D Canvas Container -->
+  <div id="canvas-container"></div>
+
+  <!-- Custom Follower Cursor -->
+  <div id="cursor-glow"></div>
+  <div id="cursor-dot"></div>
+
+  <!-- Cinematic Transitions Overlay -->
+  <div id="transition-overlay">
+    <div class="hologram-bars"></div>
+    <svg class="portal-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <circle cx="50" cy="50" r="0" fill="var(--color-primary)"></circle>
+    </svg>
+    <div class="dissolve-particles"></div>
+  </div>
+
+  <!-- Global Header / Navigation -->
+  <header id="main-header" class="glass-nav">
+    <div class="header-container">
+      <a href="#hero" class="logo-link" id="logo">
+        <span class="logo-text">OBETH</span>
+        <span class="logo-dot">.</span>
+        <span class="logo-sub">GEOFF</span>
+      </a>
+
+      <nav id="desktop-nav" class="nav-links">
+        <a href="#about" class="nav-item" id="nav-link-about"><span class="nav-number">01.</span> About</a>
+        <a href="#skills" class="nav-item" id="nav-link-skills"><span class="nav-number">02.</span> Skills</a>
+        <a href="#projects" class="nav-item" id="nav-link-projects"><span class="nav-number">03.</span> Projects</a>
+        <a href="#timeline" class="nav-item" id="nav-link-timeline"><span class="nav-number">04.</span> Experience</a>
+        <a href="#coding-profiles" class="nav-item" id="nav-link-profiles"><span class="nav-number">05.</span> Profiles</a>
+        <a href="#articles" class="nav-item" id="nav-link-articles"><span class="nav-number">06.</span> Writing</a>
+        <a href="#contact" class="nav-item" id="nav-link-contact"><span class="nav-number">07.</span> Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="lang-toggle" class="lang-btn magnetic" aria-label="Switch Language">EN</button>
+        <button id="mobile-menu-btn" class="mobile-toggle" aria-label="Toggle Navigation">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Dropdown Navigation -->
+  <div id="mobile-menu" class="mobile-nav-panel">
+    <nav class="mobile-nav-links">
+      <a href="#about" class="mobile-nav-item" id="mobile-link-about"><span class="nav-number">01.</span> About</a>
+      <a href="#skills" class="mobile-nav-item" id="mobile-link-skills"><span class="nav-number">02.</span> Skills</a>
+      <a href="#projects" class="mobile-nav-item" id="mobile-link-projects"><span class="nav-number">03.</span> Projects</a>
+      <a href="#timeline" class="mobile-nav-item" id="mobile-link-timeline"><span class="nav-number">04.</span> Experience</a>
+      <a href="#coding-profiles" class="mobile-nav-item" id="mobile-link-profiles"><span class="nav-number">05.</span> Profiles</a>
+      <a href="#articles" class="mobile-nav-item" id="mobile-link-articles"><span class="nav-number">06.</span> Writing</a>
+      <a href="#contact" class="mobile-nav-item" id="mobile-link-contact"><span class="nav-number">07.</span> Contact</a>
+    </nav>
+  </div>
+
+  <!-- Main Scroll Container -->
+  <main id="scroll-wrapper">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="active-section">
+      <div class="section-container hero-layout">
+        <div class="hero-content">
+          <div class="hero-pretitle font-mono neon-text">AI_NODE_ACTIVE //</div>
+          <h1 class="hero-title" style="font-family: 'Clash Display', sans-serif;">
+            OBETH GEOFF<br>
+            <span id="hero-role-text" class="gradient-text">AI & Machine Learning Engineer</span>
+          </h1>
+          <p class="hero-description text-muted">
+            I build intelligent systems that transform ideas into scalable digital solutions through Artificial Intelligence, Machine Learning, Deep Learning, Computer Vision, Full Stack Development, and Cloud Technologies. Passionate about creating impactful AI-driven products that solve real-world challenges.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary magnetic" id="hero-cta-work">
+              <span class="btn-text">View Projects</span>
+              <i data-lucide="arrow-up-right" class="btn-icon"></i>
+            </a>
+            <a href="#contact" class="btn btn-secondary magnetic" id="hero-cta-contact" style="margin-right: 8px;">
+              <span class="btn-text">Download Resume</span>
+            </a>
+            <a href="#contact" class="btn btn-secondary magnetic" id="hero-cta-hire" style="margin-right: 8px;">
+              <span class="btn-text">Hire Me</span>
+            </a>
+            <a href="#contact" class="btn btn-secondary magnetic" id="hero-cta-connect">
+              <span class="btn-text">Contact Me</span>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Large Interactive 3D Parallax Profile Card (Right column) -->
+        <div class="hero-portrait-column" style="height: 520px;">
+          <div class="portrait-glow"></div>
+          <div class="portrait-card glass-panel project-tilt-container" id="hero-portrait-card" style="width: 320px; height: 430px;">
+            <div class="portrait-ring"></div>
+            <div class="portrait-frame">
+              <img src="src/assets/portrait.jpg" alt="Obeth Geoff" class="portrait-image">
+            </div>
+            <div class="portrait-hud font-mono text-tiny">
+              <span>SCAN_NODE: OBETH_GEOFF //</span>
+              <span>BIOMETRICS: ACTIVE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mouse scroll indicator -->
+      <div class="scroll-indicator">
+        <span class="font-mono text-tiny">SCROLL_STREAM</span>
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-number font-mono neon-text">01 //</div>
+          <h2 class="section-title">About Me</h2>
+        </div>
+
+        <div class="grid grid-2col about-grid">
+          <div class="about-narrative-group" style="display: flex; flex-direction: column; gap: 1.5rem;">
+            
+            <!-- Bio Card -->
+            <div class="about-bio-card glass-panel" style="padding: 2.25rem;">
+              <div class="glass-glow"></div>
+              <h4 class="font-mono neon-text" style="margin-bottom: 1rem;">// BIO_SUMMARY</h4>
+              <p class="paragraph-lead" style="font-size: 1.15rem; line-height: 1.5;">
+                I am an AI and Machine Learning Engineer dedicated to building innovative solutions that combine intelligence, automation, and exceptional user experiences.
+              </p>
+              <p class="text-muted" style="font-size: 0.95rem; line-height: 1.6;">
+                My expertise spans Machine Learning, Deep Learning, Natural Language Processing, Computer Vision, Python Development, and Full Stack Engineering. I enjoy transforming complex challenges into scalable and practical solutions while continuously exploring emerging technologies in Artificial Intelligence.
+              </p>
+            </div>
+
+            <!-- Objectives / Stats Cards Grid -->
+            <div class="about-stats-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+              <div class="glass-panel" style="padding: 1.25rem; text-align: center;">
+                <div class="stat-count neon-text font-mono" data-target="2" style="font-size: 2rem; font-weight: 700;">0</div>
+                <div class="text-tiny font-mono text-muted" style="margin-top: 0.25rem;">EXPERIENCE_YRS</div>
+              </div>
+              <div class="glass-panel" style="padding: 1.25rem; text-align: center;">
+                <div class="stat-count neon-text font-mono" data-target="24" style="font-size: 2rem; font-weight: 700;">0</div>
+                <div class="text-tiny font-mono text-muted" style="margin-top: 0.25rem;">PROJECTS_COMPLETED</div>
+              </div>
+              <div class="glass-panel" style="padding: 1.25rem; text-align: center;">
+                <div class="stat-count neon-text font-mono" data-target="8" style="font-size: 2rem; font-weight: 700;">0</div>
+                <div class="text-tiny font-mono text-muted" style="margin-top: 0.25rem;">CERTIFICATIONS</div>
+              </div>
+              <div class="glass-panel" style="padding: 1.25rem; text-align: center;">
+                <div class="stat-count neon-text font-mono" data-target="15" style="font-size: 2rem; font-weight: 700;">0</div>
+                <div class="text-tiny font-mono text-muted" style="margin-top: 0.25rem;">TECH_STACK</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Orbital timeline rendered inside glass panel -->
+          <div class="about-3d-container glass-panel" style="position: relative; height: 420px; display: flex; flex-direction: column;">
+            <div class="glass-glow"></div>
+            <div class="stats-header" style="position: absolute; top: 1.5rem; left: 1.5rem; z-index: 10; border-bottom: none; padding-bottom: 0;">
+              <i data-lucide="orbit" class="stats-icon neon-text"></i>
+              <span class="stats-title font-mono">ORBITAL_TIMELINE</span>
+            </div>
+            <div id="about-canvas-mount" style="width: 100%; height: 100%;">
+              <div class="galaxy-loading-indicator font-mono" style="display: flex; align-items: center; justify-content: center; height: 100%;">LOADING_TIMELINE_NODES...</div>
+            </div>
+            <div style="position: absolute; bottom: 1.5rem; left: 1.5rem; z-index: 10;" class="font-mono text-tiny text-muted">
+              <span>SYSTEM: ORBIT_PATH_ACTIVE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-number font-mono neon-text">02 //</div>
+          <h2 class="section-title">Core Skills</h2>
+        </div>
+
+        <div class="grid grid-2col skills-grid">
+          
+          <!-- Interactive 3D Category Panels -->
+          <div class="skills-panels-group">
+            
+            <!-- AI & ML Card -->
+            <div class="skill-category-card-3d glass-panel project-tilt-container" style="padding: 2rem;">
+              <div class="glass-glow"></div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <i data-lucide="brain-circuit" class="neon-text" style="width: 22px; height: 22px;"></i>
+                <h3 class="font-mono" style="font-size: 1.15rem; letter-spacing: 0.05rem;">AI & MACHINE LEARNING</h3>
+              </div>
+              <div class="skills-tag-grid">
+                <span class="badge-tag">Artificial Intelligence</span>
+                <span class="badge-tag">Machine Learning</span>
+                <span class="badge-tag">Deep Learning</span>
+                <span class="badge-tag">Computer Vision</span>
+                <span class="badge-tag">NLP</span>
+                <span class="badge-tag">Neural Networks</span>
+                <span class="badge-tag">Generative AI</span>
+              </div>
+            </div>
+
+            <!-- Development Card -->
+            <div class="skill-category-card-3d glass-panel project-tilt-container" style="padding: 2rem;">
+              <div class="glass-glow"></div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <i data-lucide="code" class="neon-text" style="width: 22px; height: 22px;"></i>
+                <h3 class="font-mono" style="font-size: 1.15rem; letter-spacing: 0.05rem;">DEVELOPMENT STACK</h3>
+              </div>
+              <div class="skills-tag-grid">
+                <span class="badge-tag">Python</span>
+                <span class="badge-tag">Java</span>
+                <span class="badge-tag">JavaScript</span>
+                <span class="badge-tag">TypeScript</span>
+                <span class="badge-tag">React</span>
+                <span class="badge-tag">Next.js</span>
+                <span class="badge-tag">Node.js</span>
+                <span class="badge-tag">Express</span>
+              </div>
+            </div>
+
+            <!-- Database & Tools Card -->
+            <div class="skill-category-card-3d glass-panel project-tilt-container" style="padding: 2rem;">
+              <div class="glass-glow"></div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <i data-lucide="terminal" class="neon-text" style="width: 22px; height: 22px;"></i>
+                <h3 class="font-mono" style="font-size: 1.15rem; letter-spacing: 0.05rem;">DATABASES & TOOLS</h3>
+              </div>
+              <div class="skills-tag-grid">
+                <span class="badge-tag">MySQL</span>
+                <span class="badge-tag">MongoDB</span>
+                <span class="badge-tag">PostgreSQL</span>
+                <span class="badge-tag">Git</span>
+                <span class="badge-tag">GitHub</span>
+                <span class="badge-tag">Docker</span>
+                <span class="badge-tag">Linux</span>
+                <span class="badge-tag">VS Code</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- WebGL Galaxy View Mount -->
+          <div class="skills-3d-wrapper" id="skills-canvas-mount">
+            <div class="galaxy-loading-indicator font-mono">LOADING_GALAXY_MAP...</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+      <div class="section-container">
+        
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 2rem;">
+          <div class="section-header" style="margin-bottom: 0;">
+            <div class="section-number font-mono neon-text">03 //</div>
+            <h2 class="section-title">Featured Projects</h2>
+          </div>
+          
+          <!-- Category Filtering Tabs -->
+          <div class="filter-container font-mono">
+            <button class="filter-btn active" data-filter="all">ALL_SYSTEMS</button>
+            <button class="filter-btn" data-filter="ai-ml">AI_&_ML</button>
+            <button class="filter-btn" data-filter="full-stack">FULL_STACK</button>
+            <button class="filter-btn" data-filter="hardware-cv">CV_&_IOT</button>
+          </div>
+        </div>
+
+        <div class="projects-grid" style="grid-template-columns: 1fr; gap: 2.5rem;">
+          <div class="grid-layout-projects">
+            
+            <!-- Project 1 (AI/ML) -->
+            <div class="project-tilt-container project-filter-card" data-category="ai-ml" id="project-card-1">
+              <article class="project-card glass-panel">
+                <div class="project-spotlight"></div>
+                <div class="project-glow"></div>
+                <div class="project-image-wrapper">
+                  <div class="project-image-fallback img-vortex"></div>
+                  <div class="project-scanlines"></div>
+                  <div class="project-overlay-data font-mono">
+                    <span>ACCURACY: 94.2%</span>
+                    <span>MODEL: REGRESSOR</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <div class="project-meta font-mono neon-text">01 // PREDICTIVE AI</div>
+                  <h3 class="project-name">Student Performance Predictor</h3>
+                  <p class="project-desc text-muted">
+                    Developed a machine learning model that predicts student academic performance using historical educational data. Implemented preprocessing, feature engineering, and predictive modeling.
+                  </p>
+                  <div class="project-tags font-mono">
+                    <span>Python</span>
+                    <span>Pandas</span>
+                    <span>Scikit-Learn</span>
+                    <span>Matplotlib</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="#" class="project-link magnetic" id="project-1-live">
+                      <span>RUN_INFERENCE</span>
+                      <i data-lucide="external-link"></i>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Project 2 (AI/ML) -->
+            <div class="project-tilt-container project-filter-card" data-category="ai-ml" id="project-card-2">
+              <article class="project-card glass-panel">
+                <div class="project-spotlight"></div>
+                <div class="project-glow"></div>
+                <div class="project-image-wrapper">
+                  <div class="project-image-fallback img-solana"></div>
+                  <div class="project-scanlines"></div>
+                  <div class="project-overlay-data font-mono">
+                    <span>CLASSIFIER: FOREST</span>
+                    <span>DIAGNOSIS: ENGIN</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <div class="project-meta font-mono neon-text">02 // HEALTHCARE AI</div>
+                  <h3 class="project-name">Smart Disease Prediction</h3>
+                  <p class="project-desc text-muted">
+                    Built an intelligent healthcare prediction system capable of identifying potential diseases based on symptoms provided by users. Implemented multiple classification algorithms.
+                  </p>
+                  <div class="project-tags font-mono">
+                    <span>Python</span>
+                    <span>Machine Learning</span>
+                    <span>Scikit-Learn</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="#" class="project-link magnetic" id="project-2-live">
+                      <span>RUN_DIAGNOSTICS</span>
+                      <i data-lucide="external-link"></i>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Project 3 (Full Stack) -->
+            <div class="project-tilt-container project-filter-card" data-category="full-stack" id="project-card-3">
+              <article class="project-card glass-panel">
+                <div class="project-spotlight"></div>
+                <div class="project-glow"></div>
+                <div class="project-image-wrapper">
+                  <div class="project-image-fallback img-cyberpunk"></div>
+                  <div class="project-scanlines"></div>
+                  <div class="project-overlay-data font-mono">
+                    <span>STREAM: DYNAMIC</span>
+                    <span>VIS: REACT_GL</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <div class="project-meta font-mono neon-text">03 // FULL STACK PLATFORM</div>
+                  <h3 class="project-name">Interactive Analytics Dashboard</h3>
+                  <p class="project-desc text-muted">
+                    Created a real-time analytics dashboard that visualizes business data using interactive charts and graphs. Designed to help users identify trends and make informed decisions.
+                  </p>
+                  <div class="project-tags font-mono">
+                    <span>Python</span>
+                    <span>Pandas</span>
+                    <span>React JS</span>
+                    <span>Chart Libraries</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="#" class="project-link magnetic" id="project-3-live">
+                      <span>LAUNCH_DASHBOARD</span>
+                      <i data-lucide="external-link"></i>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Project 4 (AI/ML) -->
+            <div class="project-tilt-container project-filter-card" data-category="ai-ml" id="project-card-4">
+              <article class="project-card glass-panel">
+                <div class="project-spotlight"></div>
+                <div class="project-glow"></div>
+                <div class="project-image-wrapper">
+                  <div class="project-image-fallback img-vortex"></div>
+                  <div class="project-scanlines"></div>
+                  <div class="project-overlay-data font-mono">
+                    <span>NLP: VADER_SENT</span>
+                    <span>THREADS: SECURED</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <div class="project-meta font-mono neon-text">04 // NLP DATA ENGINE</div>
+                  <h3 class="project-name">Sentiment Analysis Engine</h3>
+                  <p class="project-desc text-muted">
+                    Analyzed social media content using Natural Language Processing techniques to classify sentiments as positive, negative, or neutral.
+                  </p>
+                  <div class="project-tags font-mono">
+                    <span>Python</span>
+                    <span>NLP</span>
+                    <span>Machine Learning</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="#" class="project-link magnetic" id="project-4-live">
+                      <span>RUN_ANALYZER</span>
+                      <i data-lucide="external-link"></i>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Project 5 (Full Stack) -->
+            <div class="project-tilt-container project-filter-card" data-category="full-stack" id="project-card-5">
+              <article class="project-card glass-panel">
+                <div class="project-spotlight"></div>
+                <div class="project-glow"></div>
+                <div class="project-image-wrapper">
+                  <div class="project-image-fallback img-solana"></div>
+                  <div class="project-scanlines"></div>
+                  <div class="project-overlay-data font-mono">
+                    <span>CHURN: PRED_SYS</span>
+                    <span>METRIC: ROC_AUC</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <div class="project-meta font-mono neon-text">05 // FULL STACK BUSINESS</div>
+                  <h3 class="project-name">Customer Churn Prediction</h3>
+                  <p class="project-desc text-muted">
+                    Developed a predictive analytics model to identify customers likely to discontinue services, enabling businesses to take proactive retention measures.
+                  </p>
+                  <div class="project-tags font-mono">
+                    <span>Python</span>
+                    <span>Scikit-Learn</span>
+                    <span>React JS</span>
+                    <span>Node.js</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="#" class="project-link magnetic" id="project-5-live">
+                      <span>RUN_FORECAST</span>
+                      <i data-lucide="external-link"></i>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Project 6 (Hardware & Computer Vision) -->
+            <div class="project-tilt-container project-filter-card" data-category="hardware-cv" id="project-card-6">
+              <article class="project-card glass-panel">
+                <div class="project-spotlight"></div>
+                <div class="project-glow"></div>
+                <div class="project-image-wrapper">
+                  <div class="project-image-fallback img-cyberpunk"></div>
+                  <div class="project-scanlines"></div>
+                  <div class="project-overlay-data font-mono">
+                    <span>RECS: COLLAB_FILT</span>
+                    <span>SYS: PI_EMBEDDED</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <div class="project-meta font-mono neon-text">06 // EMBEDDED CV SYSTEM</div>
+                  <h3 class="project-name">Raspberry Pi Smart Cam</h3>
+                  <p class="project-desc text-muted">
+                    Built a hardware recommendation and target detection system that matches viewing preferences in real-time, executing light models on edge Raspberry Pi boards.
+                  </p>
+                  <div class="project-tags font-mono">
+                    <span>Python</span>
+                    <span>OpenCV</span>
+                    <span>Raspberry Pi</span>
+                    <span>Computer Vision</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="#" class="project-link magnetic" id="project-6-live">
+                      <span>RUN_RECOMMENDER</span>
+                      <i data-lucide="external-link"></i>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUTURISTIC EXPERIENCE & CERTIFICATIONS TIMELINE -->
+    <section id="timeline">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-number font-mono neon-text">04 //</div>
+          <h2 class="section-title">Experience & Timeline</h2>
+        </div>
+
+        <div class="vertical-timeline-container">
+          <div class="timeline-thread"></div>
+
+          <!-- Timeline Item 1 -->
+          <div class="timeline-node-wrapper project-tilt-container">
+            <div class="timeline-node-glow"></div>
+            <div class="timeline-card glass-panel">
+              <div class="timeline-badge font-mono neon-text">// AI_CERTIFICATIONS</div>
+              <h3 class="timeline-role">Deep Learning & AI Architectures</h3>
+              <h4 class="timeline-company">NVIDIA Deep Learning Institute & Coursera</h4>
+              <p class="timeline-desc text-muted">
+                Completed professional certifications mapping convolutional networks, transformer weights, attention matrices, and large language model fine-tuning architectures.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div class="timeline-node-wrapper project-tilt-container">
+            <div class="timeline-node-glow"></div>
+            <div class="timeline-card glass-panel">
+              <div class="timeline-badge font-mono neon-text">// ML_ENGINEERING</div>
+              <h3 class="timeline-role">B.Tech in Data Science Engineering</h3>
+              <h4 class="timeline-company">Second Year Student Academic Core</h4>
+              <p class="timeline-desc text-muted">
+                Maintaining rigorous academic coursework in statistical analyses, multivariate distributions, object-oriented structures, and database schema mappings.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <div class="timeline-node-wrapper project-tilt-container">
+            <div class="timeline-node-glow"></div>
+            <div class="timeline-card glass-panel">
+              <div class="timeline-badge font-mono neon-text">// HACKATHONS_&_WORKSHOPS</div>
+              <h3 class="timeline-role">Active Builder & Competitor</h3>
+              <h4 class="timeline-company">Hackathons Participated & AI Showcases</h4>
+              <p class="timeline-desc text-muted">
+                Participated in regional coding hackathons, constructing target predictions and image classifier portals. Gained badges and verified credentials in rapid problem solving.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS COUNTERS EXTRACTION -->
+    <section id="diagnostics-panel" style="padding: 60px 0; background: rgba(5, 5, 10, 0.5);">
+      <div class="section-container">
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;" class="grid-3col-desktop">
+          <div class="glass-panel" style="padding: 2.5rem; text-align: center;">
+            <div class="stat-count neon-text font-mono" data-target="24" style="font-size: 3.5rem; font-weight: 700;">0</div>
+            <h4 class="font-mono" style="margin-top: 0.5rem; font-size: 0.85rem; letter-spacing: 0.1em;">PROJECTS_COMPLETED //</h4>
+          </div>
+          <div class="glass-panel" style="padding: 2.5rem; text-align: center;">
+            <div class="stat-count neon-text font-mono" data-target="15" style="font-size: 3.5rem; font-weight: 700;">0</div>
+            <h4 class="font-mono" style="margin-top: 0.5rem; font-size: 0.85rem; letter-spacing: 0.1em;">TECHNOLOGIES_USED //</h4>
+          </div>
+          <div class="glass-panel" style="padding: 2.5rem; text-align: center;">
+            <div class="stat-count neon-text font-mono" data-target="8" style="font-size: 3.5rem; font-weight: 700;">0</div>
+            <h4 class="font-mono" style="margin-top: 0.5rem; font-size: 0.85rem; letter-spacing: 0.1em;">CERTIFICATIONS_VERIFIED //</h4>
+          </div>
+          <div class="glass-panel" style="padding: 2.5rem; text-align: center;">
+            <div class="stat-count neon-text font-mono" data-target="5" style="font-size: 3.5rem; font-weight: 700;">0</div>
+            <h4 class="font-mono" style="margin-top: 0.5rem; font-size: 0.85rem; letter-spacing: 0.1em;">HACKATHONS_COMPLETED //</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CODING PROFILES SECTION -->
+    <section id="coding-profiles">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-number font-mono neon-text">05 //</div>
+          <h2 class="section-title">Coding Profiles</h2>
+        </div>
+
+        <div class="profiles-grid">
+          
+          <!-- GitHub Stats Card -->
+          <div class="profile-card glass-panel" id="profile-github">
+            <div class="glass-glow"></div>
+            <div class="profile-header">
+              <i data-lucide="github" class="profile-icon neon-text"></i>
+              <h3 class="profile-title font-mono">GITHUB</h3>
+            </div>
+            <p class="profile-desc text-muted">Repositories, contributions, commit heatmap, and project statistics.</p>
+            
+            <div class="commit-heatmap">
+              <div class="heatmap-label font-mono">CONTRIBUTIONS //</div>
+              <div class="heatmap-grid">
+                <!-- Row 1 -->
+                <div class="heatmap-cell lvl-3"></div><div class="heatmap-cell lvl-1"></div><div class="heatmap-cell lvl-0"></div><div class="heatmap-cell lvl-2"></div><div class="heatmap-cell lvl-4"></div><div class="heatmap-cell lvl-1"></div><div class="heatmap-cell lvl-3"></div><div class="heatmap-cell lvl-0"></div>
+                <!-- Row 2 -->
+                <div class="heatmap-cell lvl-0"></div><div class="heatmap-cell lvl-4"></div><div class="heatmap-cell lvl-2"></div><div class="heatmap-cell lvl-3"></div><div class="heatmap-cell lvl-1"></div><div class="heatmap-cell lvl-0"></div><div class="heatmap-cell lvl-2"></div><div class="heatmap-cell lvl-4"></div>
+                <!-- Row 3 -->
+                <div class="heatmap-cell lvl-2"></div><div class="heatmap-cell lvl-1"></div><div class="heatmap-cell lvl-4"></div><div class="heatmap-cell lvl-0"></div><div class="heatmap-cell lvl-3"></div><div class="heatmap-cell lvl-2"></div><div class="heatmap-cell lvl-1"></div><div class="heatmap-cell lvl-3"></div>
+              </div>
+            </div>
+
+            <div class="profile-stats font-mono">
+              <div class="stat-line"><span>REPOSITORIES:</span> <span class="neon-text">32</span></div>
+              <div class="stat-line"><span>TOTAL_COMMITS:</span> <span class="neon-text">642</span></div>
+            </div>
+            <a href="https://github.com" target="_blank" rel="noopener" class="profile-btn magnetic">ACCESS_REPOS</a>
+          </div>
+
+          <!-- LeetCode Stats Card -->
+          <div class="profile-card glass-panel" id="profile-leetcode">
+            <div class="glass-glow"></div>
+            <div class="profile-header">
+              <i data-lucide="code-2" class="profile-icon neon-text"></i>
+              <h3 class="profile-title font-mono">LEETCODE</h3>
+            </div>
+            <p class="profile-desc text-muted">Problem-solving statistics, algorithm benchmarks, and achievements.</p>
+            
+            <div class="problem-stats">
+              <div class="progress-bar-container">
+                <div class="progress-label font-mono"><span>SOLVED: 154</span> <span>72%</span></div>
+                <div class="progress-track"><div class="progress-fill" style="width: 72%;"></div></div>
+              </div>
+            </div>
+
+            <div class="profile-stats font-mono">
+              <div class="stat-line"><span>EASY:</span> <span class="neon-text">70</span></div>
+              <div class="stat-line"><span>MEDIUM:</span> <span class="neon-text">68</span></div>
+              <div class="stat-line"><span>HARD:</span> <span class="neon-text">16</span></div>
+            </div>
+            <a href="https://leetcode.com" target="_blank" rel="noopener" class="profile-btn magnetic">ACCESS_STATS</a>
+          </div>
+
+          <!-- HackerRank Stats Card -->
+          <div class="profile-card glass-panel" id="profile-hackerrank">
+            <div class="glass-glow"></div>
+            <div class="profile-header">
+              <i data-lucide="award" class="profile-icon neon-text"></i>
+              <h3 class="profile-title font-mono">HACKERRANK</h3>
+            </div>
+            <p class="profile-desc text-muted">Verified skill certifications and competitive coding badges.</p>
+            
+            <div class="badge-list">
+              <div class="badge-item font-mono"><i data-lucide="shield-check" class="neon-text"></i> Python (Gold)</div>
+              <div class="badge-item font-mono"><i data-lucide="shield-check" class="neon-text"></i> Problem Solving</div>
+            </div>
+
+            <div class="profile-stats font-mono">
+              <div class="stat-line"><span>CERTIFICATIONS:</span> <span class="neon-text">4</span></div>
+              <div class="stat-line"><span>BADGES:</span> <span class="neon-text">6</span></div>
+            </div>
+            <a href="https://hackerrank.com" target="_blank" rel="noopener" class="profile-btn magnetic">ACCESS_BADGES</a>
+          </div>
+
+          <!-- GeeksforGeeks Stats Card -->
+          <div class="profile-card glass-panel" id="profile-geeksforgeeks">
+            <div class="glass-glow"></div>
+            <div class="profile-header">
+              <i data-lucide="book-open" class="profile-icon neon-text"></i>
+              <h3 class="profile-title font-mono">GEEKSFORGEEKS</h3>
+            </div>
+            <p class="profile-desc text-muted">Technical article archives, compiler activities, and scores.</p>
+            
+            <div class="activity-metric">
+              <div class="metric-score font-mono neon-text">380+</div>
+              <div class="metric-label font-mono">CODING_SCORE</div>
+            </div>
+
+            <div class="profile-stats font-mono">
+              <div class="stat-line"><span>ARTICLES:</span> <span class="neon-text">5</span></div>
+              <div class="stat-line"><span>SOLVED:</span> <span class="neon-text">84</span></div>
+            </div>
+            <a href="https://geeksforgeeks.org" target="_blank" rel="noopener" class="profile-btn magnetic">ACCESS_ARTICLES</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTICLES SECTION -->
+    <section id="articles">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-number font-mono neon-text">06 //</div>
+          <h2 class="section-title">Writing</h2>
+        </div>
+
+        <div class="articles-list">
+          
+          <!-- Article 1 -->
+          <article class="article-row glass-panel" id="article-item-1">
+            <div class="article-meta font-mono text-muted">
+              <span class="article-date">2026.05.10</span>
+              <span class="article-tag neon-text">// MACHINE_LEARNING</span>
+            </div>
+            <div class="article-main">
+              <h3 class="article-headline">Introduction to Machine Learning for Beginners</h3>
+              <p class="article-excerpt text-muted">
+                Demystifying supervised and unsupervised learning algorithms, models, and core statistical constructs for junior developers.
+              </p>
+            </div>
+            <div class="article-actions">
+              <span class="read-time font-mono">5 min read</span>
+              <a href="#" class="btn-circle magnetic" aria-label="Read Article"><i data-lucide="arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="article-row glass-panel" id="article-item-2">
+            <div class="article-meta font-mono text-muted">
+              <span class="article-date">2026.04.18</span>
+              <span class="article-tag neon-text">// DATA_ANALYTICS</span>
+            </div>
+            <div class="article-main">
+              <h3 class="article-headline">Understanding Data Analytics in Real-World Applications</h3>
+              <p class="article-excerpt text-muted">
+                How corporate enterprises harness big data clusters and pipelines to forecast customer metrics and drive expansion systems.
+              </p>
+            </div>
+            <div class="article-actions">
+              <span class="read-time font-mono">8 min read</span>
+              <a href="#" class="btn-circle magnetic" aria-label="Read Article"><i data-lucide="arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="article-row glass-panel" id="article-item-3">
+            <div class="article-meta font-mono text-muted">
+              <span class="article-date">2026.03.14</span>
+              <span class="article-tag neon-text">// PYTHON_DEV</span>
+            </div>
+            <div class="article-main">
+              <h3 class="article-headline">Python Libraries Every Data Scientist Should Know</h3>
+              <p class="article-excerpt text-muted">
+                Comparing NumPy, Pandas, Scikit-Learn, and TensorFlow, detailings when and how to combine them inside computational scripts.
+              </p>
+            </div>
+            <div class="article-actions">
+              <span class="read-time font-mono">6 min read</span>
+              <a href="#" class="btn-circle magnetic" aria-label="Read Article"><i data-lucide="arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Article 4 -->
+          <article class="article-row glass-panel" id="article-item-4">
+            <div class="article-meta font-mono text-muted">
+              <span class="article-date">2026.01.20</span>
+              <span class="article-tag neon-text">// AI_RESEARCH</span>
+            </div>
+            <div class="article-main">
+              <h3 class="article-headline">Future of Artificial Intelligence and Data Science</h3>
+              <p class="article-excerpt text-muted">
+                An analytical deep-dive into LLMs, neural networks, predictive models, and ethical computing guidelines of the next decade.
+              </p>
+            </div>
+            <div class="article-actions">
+              <span class="read-time font-mono">7 min read</span>
+              <a href="#" class="btn-circle magnetic" aria-label="Read Article"><i data-lucide="arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Article 5 -->
+          <article class="article-row glass-panel" id="article-item-5">
+            <div class="article-meta font-mono text-muted">
+              <span class="article-date">2025.11.02</span>
+              <span class="article-tag neon-text">// DATA_PREP</span>
+            </div>
+            <div class="article-main">
+              <h3 class="article-headline">Exploratory Data Analysis Explained</h3>
+              <p class="article-excerpt text-muted">
+                A step-by-step pipeline manual on data cleaning, outlier detections, and charting visual relationships before modeling.
+              </p>
+            </div>
+            <div class="article-actions">
+              <span class="read-time font-mono">10 min read</span>
+              <a href="#" class="btn-circle magnetic" aria-label="Read Article"><i data-lucide="arrow-right"></i></a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-number font-mono neon-text">07 //</div>
+          <h2 class="section-title">Get In Touch</h2>
+        </div>
+
+        <div class="grid grid-2col contact-grid">
+          
+          <!-- Cyberpunk Contact Form -->
+          <div class="contact-form-wrapper glass-panel">
+            <div class="glass-glow"></div>
+            <div class="terminal-header font-mono text-muted">
+              <span>DATA_LINK.EXE</span>
+              <span class="blink">_</span>
+            </div>
+            <form id="contact-form" class="cyber-form" autocomplete="off">
+              <div class="form-group">
+                <input type="text" id="contact-name" name="name" required placeholder=" " class="form-input">
+                <label for="contact-name" class="form-label font-mono">CALLSIGN / NAME //</label>
+                <div class="input-glow"></div>
+              </div>
+              <div class="form-group">
+                <input type="email" id="contact-email" name="email" required placeholder=" " class="form-input">
+                <label for="contact-email" class="form-label font-mono">COMMUNICATION_ADDRESS / EMAIL //</label>
+                <div class="input-glow"></div>
+              </div>
+              <div class="form-group">
+                <textarea id="contact-message" name="message" required rows="5" placeholder=" " class="form-input"></textarea>
+                <label for="contact-message" class="form-label font-mono">TRANSMISSION_CONTENT / MESSAGE //</label>
+                <div class="input-glow"></div>
+              </div>
+              <button type="submit" id="contact-submit-btn" class="btn btn-primary btn-block magnetic">
+                <span class="btn-text">Send Message</span>
+                <i data-lucide="send" class="btn-icon"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- Social and Info Column -->
+          <div class="contact-info-col">
+            <h3 class="contact-subheading font-mono neon-text">// Let's Build Something Amazing Together</h3>
+            <p class="text-muted">
+              Whether you have an opportunity, project, collaboration idea, or simply want to connect, feel free to reach out. I am actively accepting inquiries. Click any line below to copy link details directly to your clipboard.
+            </p>
+            
+            <!-- Direct Info -->
+            <div class="info-direct font-mono">
+              <a href="#" id="info-email" class="magnetic" style="cursor: none;">
+                <i data-lucide="mail" class="neon-text"></i>
+                <span>obethgeoff10c@gmail.com</span>
+                <i data-lucide="copy" class="copy-icon" style="width: 14px; height: 14px; opacity: 0.5; margin-left: auto;"></i>
+              </a>
+              <a href="#" id="info-phone" class="magnetic" style="cursor: none;">
+                <i data-lucide="phone" class="neon-text"></i>
+                <span>8015265298</span>
+                <i data-lucide="copy" class="copy-icon" style="width: 14px; height: 14px; opacity: 0.5; margin-left: auto;"></i>
+              </a>
+              <div id="info-location">
+                <i data-lucide="map-pin" class="neon-text"></i>
+                <span>Second-Year B.Tech Student</span>
+              </div>
+            </div>
+
+            <!-- Social Grid with 3D Holographic styling -->
+            <div class="social-grid">
+              
+              <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-card glass-panel magnetic" id="social-linkedin">
+                <div class="social-card-glow"></div>
+                <i data-lucide="linkedin" class="social-icon"></i>
+                <span class="social-name font-mono">LINKEDIN</span>
+              </a>
+
+              <a href="https://github.com" target="_blank" rel="noopener" class="social-card glass-panel magnetic" id="social-github">
+                <div class="social-card-glow"></div>
+                <i data-lucide="github" class="social-icon"></i>
+                <span class="social-name font-mono">GITHUB</span>
+              </a>
+
+              <a href="https://instagram.com" target="_blank" rel="noopener" class="social-card glass-panel magnetic" id="social-instagram">
+                <div class="social-card-glow"></div>
+                <i data-lucide="instagram" class="social-icon"></i>
+                <span class="social-name font-mono">INSTAGRAM</span>
+              </a>
+
+              <a href="https://youtube.com" target="_blank" rel="noopener" class="social-card glass-panel magnetic" id="social-youtube">
+                <div class="social-card-glow"></div>
+                <i data-lucide="youtube" class="social-icon"></i>
+                <span class="social-name font-mono">YOUTUBE</span>
+              </a>
+
+              <a href="https://twitter.com" target="_blank" rel="noopener" class="social-card glass-panel magnetic" id="social-twitter">
+                <div class="social-card-glow"></div>
+                <i data-lucide="twitter" class="social-icon"></i>
+                <span class="social-name font-mono">TWITTER</span>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="main-footer">
+      <div class="footer-container font-mono text-tiny text-muted" style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+        <div style="font-style: italic; text-align: center; color: var(--color-primary); font-size: 0.85rem; margin-bottom: 0.5rem; text-shadow: 0 0 10px rgba(0, 229, 255, 0.2);">
+          "Data is the new oil, but insight is the true fuel of innovation."
+        </div>
+        <div style="display: flex; justify-content: space-between; width: 100%;">
+          <span>OBETH GEOFF © 2026</span>
+          <span>DEVELOPED WITH REACT, THREE.JS, FRAMER MOTION, AND PASSION</span>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Core Javascript Modules -->
+  <script type="module" src="src/main.js"></script>
+
+</body>
+</html>
